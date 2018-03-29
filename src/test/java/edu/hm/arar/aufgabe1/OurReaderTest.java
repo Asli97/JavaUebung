@@ -48,13 +48,19 @@ public class OurReaderTest {
         String[][] result = sut.read(new StringReader(csv));
 
         assertEquals(1, result.length);
-        assertEquals(1, result[0].length);
+        assertEquals(0, result[0].length);
 
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testReadCsvfehlerhaft () throws IOException {
-        String csv = "aa,bb,cc\nee,ff,gg";
+        String csv = "Hello\nhhh\\\\n";
+        sut.read(new StringReader(csv));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testReadCsvLeer() throws IOException {
+        String csv = "";
         sut.read(new StringReader(csv));
     }
 
@@ -64,6 +70,15 @@ public class OurReaderTest {
         String[][] result = sut.read(new StringReader(csv));
 
         assertEquals(2,result.length);
-        assertEquals(1,result[1].length);
+        assertEquals(0,result[1].length);
+    }
+
+    @Test
+    public void testReadCsvErstesWortLeer() throws IOException {
+        String csv = "\nhallo\n";
+        String[][] result = sut.read(new StringReader(csv));
+
+        assertEquals(2,result.length);
+        assertEquals(0,result[0].length);
     }
 }
