@@ -12,13 +12,11 @@ import java.util.function.Predicate;
 /**
  * Created by Sümeyye on 03.04.2018.
  */
-public class Comlexy implements ComplexityAnalyzer {
+public class Complexy implements ComplexityAnalyzer {
 
-    private Path rootDir = Paths.get(System.getProperty("user.dir"));
+    private  Path rootDir = Paths.get(System.getProperty("user.dir"));
 
-    public Comlexy() {
-
-    }
+    public Complexy() {}
 
     @Override
     public ComplexityAnalyzer setRootdir(Path rootdir) throws IOException {
@@ -32,18 +30,18 @@ public class Comlexy implements ComplexityAnalyzer {
     @Override
     public Map<String, Integer> analyzeClassfiles() throws IOException {
         Map<String, Integer> result = new HashMap<>();
-        Files.walk(rootDir, FileVisitOption.FOLLOW_LINKS)
+        Files.walk(this.rootDir)
                 .filter(path -> path.endsWith(".class"))
                 .map(this::calculateComplexity)
                 .forEach(entry -> result.put(entry.getKey(), entry.getValue()));
         return result;
     }
 
-    private Map.Entry<String, Integer> calculateComplexity(Path path) throws RuntimeException {
+    private Map.Entry<String, Integer> calculateComplexity(Path path) throws RuntimeException  {
         try {
             Files.readAllLines(path);
         } catch (IOException e) {
-            throw new RuntimeException();
+            throw new RuntimeException(e);
         }
         return null;
     }
