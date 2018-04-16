@@ -1,5 +1,7 @@
 package edu.hm.arar.aufgabe3;
 
+import edu.hm.arar.aufgabe3.Regeln.Regeln;
+import edu.hm.arar.aufgabe3.Regeln.Spielregeln;
 import org.junit.Before;
 import org.junit.Test;
 

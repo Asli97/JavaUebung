@@ -1,4 +1,4 @@
-package edu.hm.arar.aufgabe3;
+package edu.hm.arar.aufgabe3.Formatieren;
 
 /**
  * Created by Sümeyye on 11.04.2018.

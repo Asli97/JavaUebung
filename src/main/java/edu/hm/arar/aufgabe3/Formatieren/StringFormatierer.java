@@ -1,4 +1,6 @@
-package edu.hm.arar.aufgabe3;
+package edu.hm.arar.aufgabe3.Formatieren;
+
+import edu.hm.arar.aufgabe3.Formatieren.Formatierer;
 
 /**
  * Created by Sümeyye on 11.04.2018.

@@ -1,5 +1,6 @@
 package edu.hm.arar.aufgabe3;
 
+import edu.hm.arar.aufgabe3.Formatieren.StringFormatierer;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
